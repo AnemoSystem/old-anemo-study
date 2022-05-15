@@ -1,7 +1,7 @@
 <?php
 	include "../connection.php";
 	$id = $_GET['id'];
-    $sql = "SELECT * FROM function";
+    $sql = "SELECT * FROM subject";
     $query = mysqli_query($connection, $sql);
     while($row = mysqli_fetch_assoc($query)) {
         $name = $row['name'];
@@ -9,9 +9,9 @@
 	
 	if(isset($_POST['submit'])) {
 		$name = $_POST['name'];
-		$sql = "UPDATE function SET name = '$name' WHERE id = $id";
+		$sql = "UPDATE subject SET name = '$name' WHERE id = $id";
         $query = mysqli_query($connection, $sql);
-		header("location: function.php");
+		header("location: subject.php");
 	}
 	mysqli_close($connection);
 ?>
@@ -20,7 +20,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Editar Função</title>
+        <title>Editar Matéria</title>
     </head>
     <body>
 		<form method="POST">

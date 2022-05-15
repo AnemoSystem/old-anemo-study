@@ -2,12 +2,12 @@
     include '../connection.php';
     if(isset($_POST['submit'])) {
         $name = $_POST['name'];
-        $sql = "INSERT INTO function (name) VALUES ('$name')";
+        $sql = "INSERT INTO subject (name) VALUES ('$name')";
         $query = mysqli_query($connection, $sql);
     }
     else if(isset($_POST['delete'])) {
         $id_selected = $_POST['delete'];
-        $sql = "DELETE FROM function WHERE id = $id_selected";
+        $sql = "DELETE FROM subject WHERE id = $id_selected";
         mysqli_query($connection, $sql);
         header("Refresh:0");
     }
@@ -17,7 +17,7 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Cadastrar Função</title>
+        <title>Cadastrar Matéria</title>
     </head>
     <body>
         <form method="POST">
@@ -35,11 +35,11 @@
                     </tr>
                     <tr>
                         <?php
-							$sql = "SELECT COUNT(*) FROM function";
+							$sql = "SELECT COUNT(*) FROM subject";
 							$query = mysqli_query($connection, $sql);
 							$row = mysqli_fetch_row($query);
 							if($row[0] != 0) {
-								$sql = "SELECT * FROM function";
+								$sql = "SELECT * FROM subject";
 								$query = mysqli_query($connection, $sql);
 								while($row = mysqli_fetch_assoc($query)) {
 									$id = $row['id'];
@@ -53,7 +53,7 @@
 								}
 							}
 							else {
-								echo '<tr><td colspan="3">Não existem funções cadastradas ainda!</td></tr>';
+								echo '<tr><td colspan="3">Não existem matérias cadastradas ainda!</td></tr>';
 							}
 							mysqli_close($connection);
                         ?>
