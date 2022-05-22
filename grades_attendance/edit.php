@@ -68,6 +68,7 @@
 						else
 							echo '<option value="'.$id.'">'.$id.' - '.$student.' ('.$grade.' - '.$period.')</option>';
 					}
+					mysqli_close($connection);
 				?>
 			</select><br>
 			<label for="grade-value">Nota:</label>
