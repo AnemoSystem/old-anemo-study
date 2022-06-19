@@ -1,13 +1,14 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 4.9.5
 -- https://www.phpmyadmin.net/
 --
--- Host: 127.0.0.1
--- Generation Time: May 29, 2022 at 09:44 PM
--- Server version: 10.4.22-MariaDB
--- PHP Version: 8.1.2
+-- Host: localhost:3306
+-- Tempo de geração: 19-Jun-2022 às 19:42
+-- Versão do servidor: 10.5.12-MariaDB
+-- versão do PHP: 7.3.32
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -18,13 +19,13 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `school`
+-- Banco de dados: `id19017769_school`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `classroom`
+-- Estrutura da tabela `classroom`
 --
 
 CREATE TABLE `classroom` (
@@ -34,7 +35,7 @@ CREATE TABLE `classroom` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `classroom`
+-- Extraindo dados da tabela `classroom`
 --
 
 INSERT INTO `classroom` (`id`, `grade_id`, `period_id`) VALUES
@@ -43,7 +44,7 @@ INSERT INTO `classroom` (`id`, `grade_id`, `period_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `employee`
+-- Estrutura da tabela `employee`
 --
 
 CREATE TABLE `employee` (
@@ -59,16 +60,16 @@ CREATE TABLE `employee` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `employee`
+-- Extraindo dados da tabela `employee`
 --
 
 INSERT INTO `employee` (`id`, `email`, `password`, `name`, `cpf`, `rg`, `function_id`, `phone`, `salary`) VALUES
-(11, 'eae@gmail.com', '$2y$10$oWQSbf0Fn74d0aXQu.kRN.HYkTaFtJu5yVsVds7XQoB5mDxf1yra6', 'eae', '444.444.444-44', '44.444.444-4', 15, '(23) 11231-2312', '200.00');
+(11, 'eae@gmail.com', '$2y$10$oWQSbf0Fn74d0aXQu.kRN.HYkTaFtJu5yVsVds7XQoB5mDxf1yra6', 'eae', '444.444.444-44', '44.444.444-4', 15, '(23) 11231-2312', 200.00);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `function`
+-- Estrutura da tabela `function`
 --
 
 CREATE TABLE `function` (
@@ -77,7 +78,7 @@ CREATE TABLE `function` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `function`
+-- Extraindo dados da tabela `function`
 --
 
 INSERT INTO `function` (`id`, `name`) VALUES
@@ -87,7 +88,7 @@ INSERT INTO `function` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `grade`
+-- Estrutura da tabela `grade`
 --
 
 CREATE TABLE `grade` (
@@ -96,7 +97,7 @@ CREATE TABLE `grade` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `grade`
+-- Extraindo dados da tabela `grade`
 --
 
 INSERT INTO `grade` (`id`, `name`) VALUES
@@ -106,7 +107,7 @@ INSERT INTO `grade` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `grades_attendance`
+-- Estrutura da tabela `grades_attendance`
 --
 
 CREATE TABLE `grades_attendance` (
@@ -117,17 +118,17 @@ CREATE TABLE `grades_attendance` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `grades_attendance`
+-- Extraindo dados da tabela `grades_attendance`
 --
 
 INSERT INTO `grades_attendance` (`subject_teacher_id`, `student_id`, `grade_value`, `id`) VALUES
-(4, 1, '1.0', 5),
-(4, 2, '7.0', 6);
+(4, 1, 1.0, 5),
+(4, 2, 7.0, 6);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `period`
+-- Estrutura da tabela `period`
 --
 
 CREATE TABLE `period` (
@@ -138,7 +139,7 @@ CREATE TABLE `period` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `period`
+-- Extraindo dados da tabela `period`
 --
 
 INSERT INTO `period` (`id`, `name`, `start_time`, `end_time`) VALUES
@@ -148,7 +149,7 @@ INSERT INTO `period` (`id`, `name`, `start_time`, `end_time`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `student`
+-- Estrutura da tabela `student`
 --
 
 CREATE TABLE `student` (
@@ -163,7 +164,7 @@ CREATE TABLE `student` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `student`
+-- Extraindo dados da tabela `student`
 --
 
 INSERT INTO `student` (`id`, `name`, `cpf`, `rg`, `email`, `password`, `classroom_id`, `phone`) VALUES
@@ -174,7 +175,7 @@ INSERT INTO `student` (`id`, `name`, `cpf`, `rg`, `email`, `password`, `classroo
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subject`
+-- Estrutura da tabela `subject`
 --
 
 CREATE TABLE `subject` (
@@ -183,7 +184,7 @@ CREATE TABLE `subject` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `subject`
+-- Extraindo dados da tabela `subject`
 --
 
 INSERT INTO `subject` (`id`, `name`) VALUES
@@ -192,7 +193,7 @@ INSERT INTO `subject` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `subject_teacher`
+-- Estrutura da tabela `subject_teacher`
 --
 
 CREATE TABLE `subject_teacher` (
@@ -202,7 +203,7 @@ CREATE TABLE `subject_teacher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `subject_teacher`
+-- Extraindo dados da tabela `subject_teacher`
 --
 
 INSERT INTO `subject_teacher` (`id`, `teacher_id`, `subject_id`) VALUES
@@ -211,7 +212,7 @@ INSERT INTO `subject_teacher` (`id`, `teacher_id`, `subject_id`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `teacher`
+-- Estrutura da tabela `teacher`
 --
 
 CREATE TABLE `teacher` (
@@ -226,40 +227,52 @@ CREATE TABLE `teacher` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `teacher`
+-- Extraindo dados da tabela `teacher`
 --
 
 INSERT INTO `teacher` (`id`, `name`, `cpf`, `rg`, `email`, `password`, `phone`, `salary`) VALUES
-(5, 'oi22', '111.111.111-12', '11.111.111-2', 'oi@oi22', '1776', '(11) 11111-1112', '115.00'),
-(6, 'João', '745.645.645-64', '54.564.564-6', 'asdjja@fjaij', '$2y$10$ep7n4TrLUWh7f6Zfbsvfn.4s8tWZ8abQzOujLz9znmLiADaFFAHz2', '(54) 65456-4646', '454.00');
+(5, 'oi22', '111.111.111-12', '11.111.111-2', 'oi@oi22', '1776', '(11) 11111-1112', 115.00),
+(6, 'João', '745.645.645-64', '54.564.564-6', 'asdjja@fjaij', '$2y$10$ep7n4TrLUWh7f6Zfbsvfn.4s8tWZ8abQzOujLz9znmLiADaFFAHz2', '(54) 65456-4646', 454.00);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Estrutura da tabela `user`
 --
 
 CREATE TABLE `user` (
   `user_nickname` varchar(30) NOT NULL,
   `user_password` varchar(60) NOT NULL,
   `student_id` int(11) NOT NULL,
-  `is_logged` bit(1) NOT NULL
+  `is_logged` bit(1) NOT NULL,
+  `id_skin` int(11) NOT NULL,
+  `id_torso` int(11) NOT NULL,
+  `id_legs` int(11) NOT NULL,
+  `id_hair` int(11) NOT NULL,
+  `coins` int(11) NOT NULL,
+  `points` int(11) NOT NULL,
+  `clothes_purchased` longtext CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL CHECK (json_valid(`clothes_purchased`))
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data for table `user`
+-- Extraindo dados da tabela `user`
 --
 
-INSERT INTO `user` (`user_nickname`, `user_password`, `student_id`, `is_logged`) VALUES
-('guisamuel', 'desenhando', 2, b'1'),
-('joao123', 'teste', 1, b'0');
+INSERT INTO `user` (`user_nickname`, `user_password`, `student_id`, `is_logged`, `id_skin`, `id_torso`, `id_legs`, `id_hair`, `coins`, `points`, `clothes_purchased`) VALUES
+('guisamuel', 'desenhando', 2, b'0', 0, 0, 0, 0, 0, 0, NULL),
+('joao123', 'teste', 1, b'0', 0, 0, 0, 0, 0, 0, NULL),
+('capivara12', 'pote1', 2, b'0', 0, 0, 0, 0, 0, 0, NULL),
+('ZegarekD', 'zeg', 1, b'0', 0, 0, 0, 0, 0, 0, NULL),
+('primo', 'primo', 1, b'0', 0, 0, 0, 0, 0, 0, NULL),
+('a', 'a', 2, b'0', 0, 0, 1, 1, 0, 0, NULL),
+('e', 'e', 1, b'1', 1, 1, 0, 0, 0, 0, NULL);
 
 --
--- Indexes for dumped tables
+-- Índices para tabelas despejadas
 --
 
 --
--- Indexes for table `classroom`
+-- Índices para tabela `classroom`
 --
 ALTER TABLE `classroom`
   ADD PRIMARY KEY (`id`),
@@ -267,51 +280,51 @@ ALTER TABLE `classroom`
   ADD KEY `ano_id` (`grade_id`);
 
 --
--- Indexes for table `employee`
+-- Índices para tabela `employee`
 --
 ALTER TABLE `employee`
   ADD PRIMARY KEY (`id`),
   ADD KEY `funcao_id` (`function_id`);
 
 --
--- Indexes for table `function`
+-- Índices para tabela `function`
 --
 ALTER TABLE `function`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `grade`
+-- Índices para tabela `grade`
 --
 ALTER TABLE `grade`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `grades_attendance`
+-- Índices para tabela `grades_attendance`
 --
 ALTER TABLE `grades_attendance`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `period`
+-- Índices para tabela `period`
 --
 ALTER TABLE `period`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `student`
+-- Índices para tabela `student`
 --
 ALTER TABLE `student`
   ADD PRIMARY KEY (`id`),
   ADD KEY `sala_id` (`classroom_id`);
 
 --
--- Indexes for table `subject`
+-- Índices para tabela `subject`
 --
 ALTER TABLE `subject`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `subject_teacher`
+-- Índices para tabela `subject_teacher`
 --
 ALTER TABLE `subject_teacher`
   ADD PRIMARY KEY (`id`),
@@ -319,113 +332,113 @@ ALTER TABLE `subject_teacher`
   ADD KEY `materia_id` (`subject_id`);
 
 --
--- Indexes for table `teacher`
+-- Índices para tabela `teacher`
 --
 ALTER TABLE `teacher`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `user`
+-- Índices para tabela `user`
 --
 ALTER TABLE `user`
   ADD KEY `student_id` (`student_id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
--- AUTO_INCREMENT for table `classroom`
+-- AUTO_INCREMENT de tabela `classroom`
 --
 ALTER TABLE `classroom`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `employee`
+-- AUTO_INCREMENT de tabela `employee`
 --
 ALTER TABLE `employee`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
--- AUTO_INCREMENT for table `function`
+-- AUTO_INCREMENT de tabela `function`
 --
 ALTER TABLE `function`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `grade`
+-- AUTO_INCREMENT de tabela `grade`
 --
 ALTER TABLE `grade`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `grades_attendance`
+-- AUTO_INCREMENT de tabela `grades_attendance`
 --
 ALTER TABLE `grades_attendance`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `period`
+-- AUTO_INCREMENT de tabela `period`
 --
 ALTER TABLE `period`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
--- AUTO_INCREMENT for table `student`
+-- AUTO_INCREMENT de tabela `student`
 --
 ALTER TABLE `student`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `subject`
+-- AUTO_INCREMENT de tabela `subject`
 --
 ALTER TABLE `subject`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
--- AUTO_INCREMENT for table `subject_teacher`
+-- AUTO_INCREMENT de tabela `subject_teacher`
 --
 ALTER TABLE `subject_teacher`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- AUTO_INCREMENT for table `teacher`
+-- AUTO_INCREMENT de tabela `teacher`
 --
 ALTER TABLE `teacher`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- Constraints for dumped tables
+-- Restrições para despejos de tabelas
 --
 
 --
--- Constraints for table `classroom`
+-- Limitadores para a tabela `classroom`
 --
 ALTER TABLE `classroom`
   ADD CONSTRAINT `classroom_ibfk_1` FOREIGN KEY (`period_id`) REFERENCES `period` (`id`),
   ADD CONSTRAINT `classroom_ibfk_2` FOREIGN KEY (`grade_id`) REFERENCES `grade` (`id`);
 
 --
--- Constraints for table `employee`
+-- Limitadores para a tabela `employee`
 --
 ALTER TABLE `employee`
   ADD CONSTRAINT `employee_ibfk_1` FOREIGN KEY (`function_id`) REFERENCES `function` (`id`);
 
 --
--- Constraints for table `student`
+-- Limitadores para a tabela `student`
 --
 ALTER TABLE `student`
   ADD CONSTRAINT `student_ibfk_1` FOREIGN KEY (`classroom_id`) REFERENCES `classroom` (`id`);
 
 --
--- Constraints for table `subject_teacher`
+-- Limitadores para a tabela `subject_teacher`
 --
 ALTER TABLE `subject_teacher`
   ADD CONSTRAINT `subject_teacher_ibfk_1` FOREIGN KEY (`teacher_id`) REFERENCES `teacher` (`id`),
   ADD CONSTRAINT `subject_teacher_ibfk_2` FOREIGN KEY (`subject_id`) REFERENCES `subject` (`id`);
 
 --
--- Constraints for table `user`
+-- Limitadores para a tabela `user`
 --
 ALTER TABLE `user`
   ADD CONSTRAINT `user_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `student` (`id`);
