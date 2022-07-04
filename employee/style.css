@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merriweather:ital@1&display=swap" rel="stylesheet');
+
+* {
+    margin:0;
+    padding: 0;
+    font-size: 100%;
+    box-sizing: border-box;
+    font-family: 'Merriweather', cursive, 'Open Sans', sans-serif;
+    }
+
+body{
+    background-color: rgb(191, 191, 191);
+    align-items: center;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    margin-right: 10%;
+    margin-left: 10%;
+}
+insert-form{
+    margin: 50%;
+    }
