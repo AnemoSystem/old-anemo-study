@@ -4,8 +4,9 @@
 		$subject_teacher = $_POST['subject-teacher'];
 		$student = $_POST['student'];
 		$grade_value = $_POST['grade-value'];
-        $sql = "INSERT INTO grades_attendance (subject_teacher_id, student_id, grade_value) 
-		VALUES ($subject_teacher, $student, $grade_value)";
+		$month = $_POST['month'];
+        $sql = "INSERT INTO grades_attendance (subject_teacher_id, student_id, grade_value, school_month) 
+		VALUES ($subject_teacher, $student, $grade_value, $month)";
         $query = mysqli_query($connection, $sql);
     }
     else if(isset($_POST['delete'])) {
@@ -63,6 +64,13 @@
 				</select><br>
 				<label for="grade-value">Nota:</label>
 				<input type="number" name="grade-value" id="grade-value" min="0" max="10"><br>
+				<label for="month">Bimestre:</label>
+				<select name="month" id="month">
+					<option value="1">1º</option>
+					<option value="2">2º</option>
+					<option value="3">3º</option>
+					<option value="4">4º</option>
+				</select><br>
                 <input type="submit" name="submit" value="Enviar">
             </div>
             <div class="list">
@@ -72,6 +80,7 @@
 						<th>Disciplina</th>
 						<th>Estudante</th>
                         <th>Nota</th>
+						<th>Bimestre</th>
                     </tr>
                     <tr>
                         <?php
@@ -81,7 +90,7 @@
 							if($row[0] != 0) {
 								$sql = "SELECT grades_attendance.id, teacher.id, grades_attendance.student_id, 
 								grades_attendance.grade_value, teacher.name, subject.name, student.name,
-								grade.name, period.name FROM grades_attendance
+								grade.name, period.name, grades_attendance.school_month FROM grades_attendance
 								INNER JOIN subject_teacher ON grades_attendance.subject_teacher_id = subject_teacher.id
 								INNER JOIN teacher ON teacher.id = subject_teacher.teacher_id
 								INNER JOIN subject ON subject.id = subject_teacher.subject_id
@@ -100,11 +109,13 @@
 									$student_name = $column[6];
 									$grade_name = $column[7];
 									$period_name = $column[8];
+									$month = $column[9];
 									echo '<tr>';
 									echo '<td>'.$teacher_id.' - '.$teacher_name.'</td>';
 									echo '<td>'.$subject_name.'</td>';
 									echo '<td>'.$student_id.' - '.$student_name.' ('.$grade_name.' - '.$period_name.')</td>';
 									echo '<td>'.$grade_value.'</td>';
+									echo '<td>'.$month.'</td>';
 									echo '<td><button name="delete" value="'.$id.'">Deletar</button>';
 									echo '<a href="edit.php?id='.$id.'"><input type="button" value="Editar"></a></td>';
 									echo '</tr>';

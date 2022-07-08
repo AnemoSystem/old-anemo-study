@@ -1,20 +1,22 @@
 <?php
 	include "../connection.php";
 	$id = $_GET['id'];
-    $sql = "SELECT * FROM grades_attendance";
+    $sql = "SELECT * FROM grades_attendance WHERE id = '$id'";
     $query = mysqli_query($connection, $sql);
     while($row = mysqli_fetch_assoc($query)) {
         $subject_teacher = $row['subject_teacher_id'];
 		$student = $row['student_id'];
 		$grade_value = $row['grade_value'];
+		$month = $row['school_month'];
 	}
 	
 	if(isset($_POST['submit'])) {
 		$subject_teacher = $_POST['subject-teacher'];
 		$student = $_POST['student'];
 		$grade_value = $_POST['grade-value'];
+		$month = $_POST['month'];
 		$sql = "UPDATE grades_attendance SET subject_teacher_id = '$subject_teacher', 
-		student_id = '$student', grade_value = '$grade_value' WHERE id = $id";
+		student_id = '$student', grade_value = '$grade_value', school_month = '$month' WHERE id = $id";
         $query = mysqli_query($connection, $sql);
 		header("location: grades_attendance.php");
 	}
@@ -31,7 +33,7 @@
 			<label for="subject-teacher">Professor e Disciplina:</label>
 			<select name="subject-teacher" id="subject-teacher">
 				<?php
-					$sql = "SELECT subject_teacher.id, teacher.id, teacher.name, subject.name 
+					$sql = "SELECT teacher.id, teacher.name, subject.name 
 					FROM subject_teacher
 					INNER JOIN teacher ON teacher.id = subject_teacher.teacher_id
 					INNER JOIN subject ON subject.id = subject_teacher.subject_id
@@ -39,13 +41,12 @@
 					$query = mysqli_query($connection, $sql);
 					while($column = mysqli_fetch_row($query)) {
 						$id = $column[0];
-						$teacher_id = $column[1];
-						$teacher_name = $column[2];
-						$subject = $column[3];
+						$teacher_name = $column[1];
+						$subject = $column[2];
 						if ($id == $subject_teacher)
-							echo '<option value="'.$id.'" selected>'.$teacher_id.' - '.$teacher_name.' ('.$subject.')</option>';
+							echo '<option value="'.$id.'" selected>'.$id.' - '.$teacher_name.' ('.$subject.')</option>';
 						else
-							echo '<option value="'.$id.'">'.$teacher_id.' - '.$teacher_name.' ('.$subject.')</option>';
+							echo '<option value="'.$id.'">'.$id.' - '.$teacher_name.' ('.$subject.')</option>';
 					}
 				?>
 			</select><br>
@@ -60,19 +61,30 @@
 					$query = mysqli_query($connection, $sql);
 					while($column = mysqli_fetch_row($query)) {
 						$id = $column[0];
-						$student = $column[1];
+						$student_name = $column[1];
 						$grade = $column[2];
 						$period = $column[3];
 						if ($id == $student)
-						echo '<option value="'.$id.'" selected>'.$id.' - '.$student.' ('.$grade.' - '.$period.')</option>';
+							echo '<option value="'.$id.'" selected>'.$id.' - '.$student_name.' ('.$grade.' - '.$period.')</option>';
 						else
-							echo '<option value="'.$id.'">'.$id.' - '.$student.' ('.$grade.' - '.$period.')</option>';
+							echo '<option value="'.$id.'">'.$id.' - '.$student_name.' ('.$grade.' - '.$period.')</option>';
 					}
 					mysqli_close($connection);
 				?>
 			</select><br>
 			<label for="grade-value">Nota:</label>
 			<input type="number" value="<?php echo $grade_value ?>" name="grade-value" id="grade-value" min="0" max="10"><br>
+			<label for="month">Bimestre:</label>
+			<select name="month" id="month">
+				<?php
+					for($i = 1; $i < 4; $i++) {
+						if($month == $i)
+							echo '<option value="'.$i.'" selected>'.$i.'º</option>';
+						else
+							echo '<option value="'.$i.'">'.$i.'º</option>';
+					}
+				?>
+			</select><br>
             <input type="submit" name="submit" value="Editar">
 		</form>
 	</body>
