@@ -1,6 +1,8 @@
 <?php
     include '../connection.php';
     if(isset($_POST['submit'])) {
+		$t = 0;
+
         $name = $_POST['name'];
 		$email = $_POST['email'];
 		$rg = $_POST['rg'];
@@ -12,11 +14,30 @@
         $sql = "INSERT INTO student (email, password, name, cpf, rg, phone, classroom_id) 
 		VALUES ('$email', '$password', '$name', '$cpf', '$rg', '$phone', '$classroom')";
         $query = mysqli_query($connection, $sql);
+
+		$sql = "SELECT id FROM student WHERE cpf = '$cpf';";
+		$query = mysqli_query($connection, $sql);
+		$id = mysqli_fetch_row($query);
+
+        $sql = "SELECT subject_teacher_id FROM teacher_classroom WHERE classroom_id = '$classroom';";
+		$query = mysqli_query($connection, $sql);
+		while($column = mysqli_fetch_row($query)) {
+			if($t != $column[0]) {
+				$sql = "INSERT INTO grades_attendance (subject_teacher_id, student_id, grade_value, school_month)
+				VALUES ('".$column[0]."', '".$id[0]."', '-1', '1');";
+				mysqli_query($connection, $sql);
+				$t = $column[0];
+			}
+		}		
     }
     else if(isset($_POST['delete'])) {
         $id_selected = $_POST['delete'];
         $sql = "DELETE FROM student WHERE id = $id_selected";
         mysqli_query($connection, $sql);
+
+		$sql = "DELETE FROM grades_attendance WHERE student_id = $id_selected";
+		mysqli_query($connection, $sql);
+		
         header("Refresh:0");
     }
 ?>
