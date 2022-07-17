@@ -33,19 +33,19 @@
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
               <li class="nav-item">
-                <a href="#" class="nav-link active" aria-current="page">
+                <a href="../index.html" class="nav-link text-white" aria-current="page">
                   <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#home"/></svg>
                   Home
                 </a>
               </li>
               <li>
-                <a href="function/function.php" class="nav-link text-white">
+                <a href="function/function.php" class="nav-link active">
                   <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"/></svg>
                   Função
                 </a>
               </li>
               <li>
-                <a href="employee/employee.php" class="nav-link text-white">
+                <a href="../employee/employee.php" class="nav-link text-white">
                   <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"/></svg>
                   Funcionário
                 </a>
