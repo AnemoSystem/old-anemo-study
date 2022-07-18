@@ -10,12 +10,12 @@
     }
 
 body{
-    background-color: rgb(255, 255, 255);
-    /*align-items: center;
+    background-color: rgb(191, 191, 191);
+    align-items: center;
     margin-top: 10%;
     margin-bottom: 10%;
     margin-right: 10%;
-    margin-left: 10%;*/
+    margin-left: 10%;
 }
 insert-form{
     margin: 50%;
