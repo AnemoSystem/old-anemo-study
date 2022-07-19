@@ -59,6 +59,7 @@ header {
 .main {
     margin-top: 145px;
     margin-bottom: 42px;
+    padding: 3%;
 }
 
 header ul {
@@ -93,6 +94,25 @@ header img {
 }
 
 .myBtn {
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    user-select: none;
+    border: 1px solid rgba(0,0,0,0);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    border-radius: .25rem;
+    margin: 5px;
+}
+/* 
+.myBtn {
     border-radius: 50px;
     padding: 15px;
     font-family: 'Poiret One', cursive;
@@ -106,7 +126,7 @@ header img {
     cursor: pointer;
     opacity: 0.8;
 }
-
+*/
 .mainTitle i {
     font-size: 4vw;
     padding: 30px;
@@ -128,14 +148,14 @@ table {
     font-family: arial, sans-serif;
     border-collapse: collapse;
     width: 100%;
-  }
+}
   
-  td, th {
-    border: 1px solid #dddddd;
+td, th {
+    border: 1px solid rgba(0,0,0,.58);
     text-align: left;
     padding: 8px;
-  }
+}
   
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
+.table-header{
+    background-color: #ced4da;
+}

@@ -31,7 +31,6 @@
         >
         -->
     </head>
-    <body>
         <header>
             <nav class="navbar">
                 <a href="../index.html"><img src="../img/logo.png"></a>
@@ -48,16 +47,24 @@
                 </ul>
             </nav>
         </header>
+        <body>
         <div class="main">
             <form method="POST">
                 <div class="form" id="insert-form">
-			        <label for="name">Nome:</label>
-                    <input type="text" name="name" id="name" placeholder="Digite o nome"><br>
-                    <input type="submit" name="submit" value="Enviar">
+                    <table>
+                        <tr class="table-header">
+                            <th>Cadastrar</th>
+                        </tr>
+                        <tr>
+                            <th><label for="name">Nome:</label>
+                            <input class="myBtn" type="text" name="name" id="name" placeholder="Digite o nome"><br>
+                            <input class="myBtn" type="submit" name="submit" value="Enviar"></th>
+                        </tr>
+                    </table>
                 </div>
                 <div class="list">
                     <table>
-                        <tr>
+                        <tr class="table-header">
                             <th>ID</th>
                             <th>Nome</th>
                             <th>Ações</th>
@@ -76,8 +83,8 @@
 									    echo '<tr>';
 									    echo '<td>'.$id.'</td>';
 									    echo '<td>'.$name.'</td>';
-									    echo '<td><button name="delete" value="'.$id.'">Deletar</button>';
-									    echo '<a href="edit.php?id='.$id.'"><input type="button" value="Editar"></a></td>';
+									    echo '<td><button class="myBtn" name="delete" value="'.$id.'">Deletar</button>';
+									    echo '<a href="edit.php?id='.$id.'"><input class="myBtn" type="button" value="Editar"></a></td>';
 									    echo '</tr>';
 								    }
 							    }
@@ -90,10 +97,9 @@
                     </table>
                 </div>
             </form>
-        
-		<a href="../index.html"><button>Voltar</button></a>
+        </div>
         <footer>
-            <p>2022 © Anemo<br>Games Gamer gaming. wtdd.</p>
+            <p>2022 © Anemo<br> WTDD.</p>
         </footer>
     </body>
 </html>
