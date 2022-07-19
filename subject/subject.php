@@ -35,7 +35,7 @@
         <nav class="navbar">
             <a href="../index.html"><img src="../img/logo.png"></a>
             <ul>
-                <a href="function/function.php"><li>Função</li></a>
+                <a href="../function/function.php"><li>Função</li></a>
                 <a href="../employee/employee.php"><li>Funcionário</li></a>
                 <a href="../subject/subject.php"><li>Contato</li></a>
                 <a href="../grade/grade.php"><li>Ano Escolar</li></a>

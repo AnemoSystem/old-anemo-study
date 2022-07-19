@@ -50,7 +50,6 @@
             </ul>
         </nav>
     </header>
-	
     <body>
     <div class="main">
 		<table>
