@@ -21,6 +21,7 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
         <link rel="stylesheet" href="../css/style_index.css">
         <link rel="shortcut icon" href="../img/icon.ico"/>
+        <!--<link rel="stylesheet" href="../css/function.css">!-->
         <title>Cadastrar Função</title>
         <!--
         <link
