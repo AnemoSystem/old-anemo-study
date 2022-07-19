@@ -31,23 +31,23 @@
         >
         -->
     </head>
-        <header>
-            <nav class="navbar">
-                <a href="../index.html"><img src="../img/logo.png"></a>
-                <ul>
-                    <a href="function/function.php"><li>Função</li></a>
-                    <a href="../employee/employee.php"><li>Funcionário</li></a>
-                    <a href="../subject/subject.php"><li>Contato</li></a>
-                    <a href="../grade/grade.php"><li>Ano Escolar</li></a>
-                    <a href="../period/period.php"><li>Período</li></a>
-                    <a href="../teacher/teacher.php"><li>Professor</li></a>
-                    <a href="../classroom/classroom.php"><li>Sala</li></a>
-                    <a href="../student/student.php"><li>Estudante</li></a>
-                    <a href="../grades_attendance/grades_attendance.php"><li>Notas</li></a>
-                </ul>
-            </nav>
-        </header>
-        <body>
+    <header>
+        <nav class="navbar">
+                <a href="../index.html"><img src="../img/logo.png" class="img"></a>
+            <ul>
+                <a href="function/function.php"><li>Função</li></a>
+                <a href="../employee/employee.php"><li>Funcionário</li></a>
+                <a href="../subject/subject.php"><li>Contato</li></a>
+                <a href="../grade/grade.php"><li>Ano Escolar</li></a>
+                <a href="../period/period.php"><li>Período</li></a>
+                <a href="../teacher/teacher.php"><li>Professor</li></a>
+                <a href="../classroom/classroom.php"><li>Sala</li></a>
+                <a href="../student/student.php"><li>Estudante</li></a>
+                <a href="../grades_attendance/grades_attendance.php"><li>Notas</li></a>
+            </ul>
+        </nav>
+    </header>
+    <body>
         <div class="main">
             <form method="POST">
                 <div class="form" id="insert-form">

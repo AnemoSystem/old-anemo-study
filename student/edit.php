@@ -25,7 +25,7 @@
 		header("location: student.php");
 	}
 ?>
-<html lang="pt">
+<!--
     <head>
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -34,40 +34,87 @@
 		<script src="//ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.maskedinput/1.4.1/jquery.maskedinput.min.js"></script>
     </head>
+-->
+<!DOCTYPE html>
+<html lang="pt">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+        <link rel="stylesheet" href="../css/style_index.css">
+        <link rel="shortcut icon" href="../img/icon.ico"/>
+        <!--<link rel="stylesheet" href="../css/function.css">!-->
+        <title>Editar Aluno</title>
+        <!--
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor"
+            crossorigin="anonymous"
+        >
+        -->
+    </head>
+	<header>
+        <nav class="navbar">
+                <a href="../index.html"><img src="../img/logo.png" class="img"></a>
+            <ul>
+                <a href="../function/function.php"><li>Função</li></a>
+                <a href="../employee/employee.php"><li>Funcionário</li></a>
+                <a href="../subject/subject.php"><li>Contato</li></a>
+                <a href="../grade/grade.php"><li>Ano Escolar</li></a>
+                <a href="../period/period.php"><li>Período</li></a>
+                <a href="../teacher/teacher.php"><li>Professor</li></a>
+                <a href="../classroom/classroom.php"><li>Sala</li></a>
+                <a href="../student/student.php"><li>Estudante</li></a>
+                <a href="../grades_attendance/grades_attendance.php"><li>Notas</li></a>
+            </ul>
+        </nav>
+    </header>
     <body>
+	<div class="main">
 		<form method="POST">
-			<h3>ID: <?php echo $id; ?></h3>
-			<label for="name">Nome:</label>
-            <input type="text" name="name" id="name" placeholder="Digite o nome" value="<?php echo $name; ?>"><br>
-			<label for="email">E-mail:</label>
-            <input type="email" name="email" id="email" placeholder="Digite o e-mail" value="<?php echo $email; ?>"><br>
-			<label for="cpf">CPF:</label>
-            <input type="text" name="cpf" id="cpf" placeholder="Digite o CPF" value="<?php echo $cpf; ?>"><br>
-			<label for="rg">RG:</label>
-            <input type="text" name="rg" id="rg" placeholder="Digite o RG" value="<?php echo $rg; ?>"><br>
-			<label for="phone">Telefone:</label>
-            <input type="text" name="phone" id="phone" placeholder="Digite o telefone" value="<?php echo $phone; ?>"><br>
-			<label for="classroom">Sala:</label>
-			<select name="classroom" id="classroom">
-				<?php
-					$sql = "SELECT classroom.id, grade.name, period.name FROM classroom
-							INNER JOIN grade ON grade.id = classroom.grade_id
-							INNER JOIN period ON period.id = classroom.period_id";
-					$query = mysqli_query($connection, $sql);
-					while($column = mysqli_fetch_row($query)) {
-						$id = $column[0];
-						$grade_name = $column[1];
-						$period_name = $column[2];
-						if($id == $classroom)
-							echo '<option value="'.$id.'" selected>'.$grade_name.' - '.$period_name.'</option>';
-						else
-							echo '<option value="'.$id.'">'.$grade_name.' - '.$period_name.'</option>';
-					}
-				?>
-			</select><br>
-			<input type="submit" name="submit" value="Editar">
+			<table>
+				<tr class="table-header">
+					<th>Editar cadastro</th>
+				</tr>
+				<tr>
+					<th><h3>ID: <?php echo $id; ?></h3></th>
+				</tr>
+				<tr>
+					<th>
+						<label for="name">Nome:</label>
+        	    		<input class="myBtn" type="text" name="name" id="name" placeholder="Digite o nome" value='<?php echo $name; ?>'><br>
+						<label for="email">E-mail:</label>
+	            		<input class="myBtn" type="email" name="email" id="email" placeholder="Digite o e-mail" value='<?php echo $email; ?>'><br>
+						<label for="cpf">CPF:</label>
+            			<input class="myBtn" type="text" name="cpf" id="cpf" placeholder="Digite o CPF" value='<?php echo $cpf; ?>'><br>
+						<label for="rg">RG:</label>
+        			    <input class="myBtn" type="text" name="rg" id="rg" placeholder="Digite o RG" value='<?php echo $rg; ?>'><br>
+						<label for="phone">Telefone:</label>
+            			<input class="myBtn" type="text" name="phone" id="phone" placeholder="Digite o telefone" value="<?php echo $phone; ?>"><br>
+						<label for="classroom">Sala:</label>
+						<select class="myBtn" name="classroom" id="classroom">
+							<?php
+								$sql = "SELECT classroom.id, grade.name, period.name FROM classroom
+								INNER JOIN grade ON grade.id = classroom.grade_id
+								INNER JOIN period ON period.id = classroom.period_id";
+								$query = mysqli_query($connection, $sql);
+								while($column = mysqli_fetch_row($query)) {
+									$id = $column[0];
+									$grade_name = $column[1];
+									$period_name = $column[2];
+									if($id == $classroom)
+										echo '<option value="'.$id.'" selected>'.$grade_name.' - '.$period_name.'</option>';
+									else
+										echo '<option value="'.$id.'">'.$grade_name.' - '.$period_name.'</option>';
+								}
+							?>
+						</select><br>
+						<input class="myBtn" type="submit" name="submit" value="Editar">
+					</th>
+				</tr>
+			</table>
 		</form>
-		<a href="student.php"><button>Voltar</button></a>
 	</body>
 	<script type="text/javascript">
 		$("#cpf").mask("999.999.999-99");

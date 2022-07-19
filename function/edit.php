@@ -36,7 +36,7 @@
     </head>
 	<header>
         <nav class="navbar">
-            <a href="../index.html"><img src="../img/logo.png"></a>
+                <a href="../index.html"><img src="../img/logo.png" class="img"></a>
             <ul>
                 <a href="../function/function.php"><li>Função</li></a>
                 <a href="../employee/employee.php"><li>Funcionário</li></a>
@@ -52,23 +52,23 @@
     </header>
     <body>
     <div class="main">
-		<table>
-			<form method="POST">
+		<form method="POST">
+            <table>
             	<tr class="table-header">
 					<th>Editar cadastro</th>
-				</tr>
-				<tr>
-					<th><h3>ID: <?php echo $id; ?></h3></th>
-				</tr>
-				<tr>
+		    	</tr>
+			    <tr>
+				    <th><h3>ID: <?php echo $id; ?></h3></th>
+    			</tr>
+	    		<tr>
 					<th>
-						<label for="name">Nome:</label>
-						<input type="text" class="myBtn" name="name" id="name" value="<?php echo $name; ?>" placeholder="Digite um nome"><br>
-						<input type="submit" class="myBtn" name="submit" value="Editar">
+		    			<label for="name">Nome:</label>
+			    		<input type="text" class="myBtn" name="name" id="name" value="<?php echo $name; ?>" placeholder="Digite um nome"><br>
+					    <input type="submit" class="myBtn" name="submit" value="Editar">
 					</th>
 				</tr>
-			</form>
-        </table>
+            </table>
+		</form>
     </div>
 	</body>
 </html>
