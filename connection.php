@@ -1,6 +1,6 @@
 <?php
     $server = 'localhost';
-    $database = 'id19017769_school';
+    $database = 'school';
     $user = 'root';
     $password = '';
     $connection = new mysqli($server, $user, $password, $database);
